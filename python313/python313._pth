@@ -1,0 +1,12 @@
+#"./Pozzoli_Brazuca"
+../
+./
+python313.zip
+./python313\Lib\site-packages
+./python313\Scripts
+.
+
+# Uncomment to run site.main() automatically
+#import site
+import site
+
