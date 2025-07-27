@@ -1,0 +1,26 @@
+{
+  "ritmos": [
+    [
+      { "nota": "semínima", "valor": 1.0 }
+    ],
+    [
+      { "nota": "colcheia", "valor": 0.5 },
+      { "nota": "colcheia", "valor": 0.5 }
+    ],
+    [
+      { "nota": "semicolcheia", "valor": 0.25 },
+      { "nota": "semicolcheia", "valor": 0.25 },
+      { "nota": "semicolcheia", "valor": 0.25 },
+      { "nota": "semicolcheia", "valor": 0.25 }
+    ],
+    [
+      { "nota": "colcheia", "valor": 0.5 },
+      { "nota": "semicolcheia", "valor": 0.25 },
+      { "nota": "semicolcheia", "valor": 0.25 }
+    ],
+    [
+      { "nota": "semínima", "valor": 0.75 },
+      { "nota": "semicolcheia", "valor": 0.25 }
+    ]
+  ]
+}

@@ -54,6 +54,8 @@ class Canvas(QWidget):
 
 
 class MetronomeApp(QWidget):
+    clique_ocorreu = pyqtSignal()  # Sinal personalizado
+    
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Metrônomo Animado')
@@ -141,7 +143,11 @@ class MetronomeApp(QWidget):
         self.animation.start()
 
 
+
     def play_click(self):
+        
+        self.clique_ocorreu.emit()  # Emite o sinal
+        
         bpm = self.slider.value()
         speed = bpm / 76  # Andante = referência
         speed = max(0.5, min(2.0, speed))
@@ -153,6 +159,7 @@ class MetronomeApp(QWidget):
             "-loglevel", "quiet",
             "-af", f"atempo={speed:.2f}",
             os.path.join("recursos", "click.wav")
+            #os.path.join("recursos", "pah.wav")
         ])
 
     def bpm_to_nome(self, bpm):
@@ -172,6 +179,21 @@ class MetronomeApp(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+    
+    
+    #"""
     window = MetronomeApp()
     window.show()
+    #"""
+    
+    """
+    w = QWidget()
+    layout = QHBoxLayout(w)
+    layout.addWidget(MetronomeApp())
+    layout.addWidget(Canvas())
+    w.show()
+    #"""
+    # Canvas
+
+    
     sys.exit(app.exec_())
