@@ -1,5 +1,5 @@
 
 
 @echo off
-.\python313\python.exe -s "Metronomo.py"
+.\python313\python.exe -s "metronomo_beat.py"
 pause

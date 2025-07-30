@@ -55,6 +55,7 @@ class Canvas(QWidget):
 
 class MetronomeApp(QWidget):
     clique_ocorreu = pyqtSignal()  # Sinal personalizado
+    bpm_alterado = pyqtSignal(int)  # envia o novo BPM
     
     def __init__(self):
         super().__init__()
@@ -77,7 +78,7 @@ class MetronomeApp(QWidget):
         self.slider = QSlider(Qt.Vertical)
         self.slider.setMinimum(40)
         self.slider.setMaximum(200)
-        self.slider.setValue(76)
+        self.slider.setValue(40)
         self.slider.setTickInterval(10)
         self.slider.setTickPosition(QSlider.TicksBothSides)
         self.slider.valueChanged.connect(self.update_tempo)
@@ -122,6 +123,9 @@ class MetronomeApp(QWidget):
         self.canvas.update()
 
     def update_tempo(self, bpm):
+        
+        self.bpm_alterado.emit(bpm)
+        
         nome = self.bpm_to_nome(bpm)
         self.label_tempo.setText(f"{nome} ({bpm} BPM)")
 
